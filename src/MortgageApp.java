@@ -9,6 +9,8 @@ public class MortgageApp {
         float annualInterestRate = getValidInterestRate(scanner);
         int mortgageTerm = getValidMortgageTerm(scanner);
 
+        scanner.close();
+
         MortgageCalculator calculator = new MortgageCalculator();
         double monthlyPayment = calculator.calculateMonthlyPayment(principle, annualInterestRate, mortgageTerm);
         double totalPayback = calculator.calculateTotalPayback(monthlyPayment, mortgageTerm);
@@ -33,7 +35,7 @@ public class MortgageApp {
                 System.out.println("Mortgage cannot be 0");
             }
 
-        } while (principle <=0);
+        } while (principle <= 0);
         return principle;
     }
 
